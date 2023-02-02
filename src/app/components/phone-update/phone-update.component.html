@@ -1,0 +1,14 @@
+<!-- Terminal -->
+<div class="terminal">
+  <form [formGroup]="phoneForm" (submit)="sendNewPhoneNumber()">
+    <label for="username">Username (required):</label>
+    <input formControlName="username" type="text" name="username" id="username" placeholder="Enter username">
+
+    <label for="phoneNumber">Phone number (required):</label>
+    <input formControlName="phoneNumber" type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter phone number">
+    
+    <button type="submit" class="add" *ngIf="phoneForm.valid">Add phone number</button>
+
+  </form>
+
+</div>

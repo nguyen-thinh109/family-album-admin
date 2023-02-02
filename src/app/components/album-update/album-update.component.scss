@@ -1,0 +1,58 @@
+.menu {
+    display: flex;
+    gap: 16px;
+    background: #242F1F;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+
+
+    button {
+        flex: 1 1 0;
+        background: #748D69;
+    }
+
+    .active {
+        background: #FFF4E6;
+    }
+}
+
+.terminal {
+    background: #748D69;
+
+    &::before {
+        background: #242F1F;
+    }
+
+    label {
+        font-style: italic;
+        display: block;
+        padding: 8px 0;
+    }
+
+    input[type=text] {
+        padding: 10px 8px;
+        width: calc(100% - 16px);
+        border-radius: 4px;
+        border: none;
+        font-style: italic;
+        margin-bottom: 8px;
+
+        &:hover,
+        &:focus {
+            outline: dashed 0.5px #FFF4E6;
+        }
+
+        &:last-child {
+            margin-bottom: 16px;
+        }
+    }
+
+    .add {
+        width: calc(100% - 60px);
+        margin: 16px 30px;
+        background: #FFF4E6;
+        padding: 12px;
+    }
+}
+

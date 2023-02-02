@@ -1,0 +1,20 @@
+<div class="menu">
+  <button [class.active]="activeTabIndex == 0" (click)="updateCurrentTabTarget(0)">Collective</button>
+  <button [class.active]="activeTabIndex == 1" (click)="updateCurrentTabTarget(1)">Banoi</button>
+  <button [class.active]="activeTabIndex == 2" (click)="updateCurrentTabTarget(2)">Thu</button>
+  <button [class.active]="activeTabIndex == 3" (click)="updateCurrentTabTarget(3)">Hang</button>
+</div>
+<!-- Terminal -->
+<div class="terminal">
+  <form [formGroup]="albumForm" (submit)="sendNewImage()">
+    <label for="title">Photo title (optional):</label>
+    <input formControlName="title" type="text" name="title" id="title" placeholder="Enter image description">
+
+    <label for="link">Link (required):</label>
+    <input formControlName="link" type="text" name="link" id="link" placeholder="Image link">
+    
+    <button type="submit" class="add" *ngIf="albumForm.valid">Add new photo</button>
+
+  </form>
+
+</div>

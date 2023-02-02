@@ -1,0 +1,22 @@
+<!-- Highlight Card -->
+<div class="container">
+
+  <button class="card highlight-card card-small" (click)="toggleMode()">
+
+    <img *ngIf="title == 'phone'" src="assets/phone-book-notepad-svgrepo-com.svg" alt="phonebook" class="svg-icon"
+      width="90px">
+    <img *ngIf="title == 'album'" src="assets/picture-svgrepo-com.svg" alt="album" class="svg-icon" width="100px">
+
+    <span>{{ title == 'phone' ? 'Phone Book' : 'Album'}}</span>
+
+  </button>
+
+  <ng-container *ngIf="title == 'album'">
+    <app-album-update></app-album-update>
+  </ng-container>
+
+  <ng-container *ngIf="title == 'phone'">
+    <app-phone-update></app-phone-update>
+  </ng-container>
+
+</div>
