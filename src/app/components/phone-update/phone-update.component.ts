@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { UserPhoneNumberData } from 'src/interfaces/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponentComponent } from '../shared/dialog-component/dialog-component.component';
+import { ApiService } from 'src/app/config/api.service';
 
 @Component({
   selector: 'app-phone-update',
@@ -34,13 +35,19 @@ export class PhoneUpdateComponent implements OnInit {
     ],
   });
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit() {
     this.getCurrentActivePhoneList();
   }
 
-  getCurrentActivePhoneList() { }
+  getCurrentActivePhoneList() {
+    return this.apiService.getPhoneList()
+  }
 
   sendNewPhoneNumber() {
     let isExsitedPhoneNumber: boolean = this.activePhoneList.some(
@@ -51,7 +58,6 @@ export class PhoneUpdateComponent implements OnInit {
     if (isExsitedPhoneNumber) {
       this.dialog.open(DialogComponentComponent, {
         hasBackdrop: true,
-        height: '300px',
         width: '300px',
         data: { message: 'Phone number existed!' },
       });

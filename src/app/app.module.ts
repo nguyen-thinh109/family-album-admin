@@ -14,6 +14,7 @@ import {
   MAT_DIALOG_DEFAULT_OPTIONS,
   MatDialogModule,
 } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,11 +32,14 @@ import {
     ReactiveFormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
+    BrowserModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [DialogComponentComponent]
 })
 export class AppModule {}
