@@ -18,6 +18,12 @@
         border: none;
         font-style: italic;
         margin-bottom: 8px;
+        font-weight: bold;
+
+        &#phoneNumber{
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
 
         &:hover,
         &:focus {

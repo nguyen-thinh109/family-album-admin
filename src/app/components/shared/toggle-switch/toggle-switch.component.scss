@@ -1,0 +1,39 @@
+.toggle-container {
+    padding: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    .toggle-bg {
+        padding: 2px;
+        background: #242f1f;
+        width: 32px;
+        border-radius: 20px;
+
+        &.red {
+            background-color: #DC2B0D;
+        }
+
+        &.green {
+            background-color: #35AE4A;
+        }
+
+        .toggle-slider {
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 3px #919090;
+            background: #ffffff;
+            transition: 0.5s ease-in-out;
+
+            &.active {
+                transform: translateX(16px);
+            }
+        }
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+}

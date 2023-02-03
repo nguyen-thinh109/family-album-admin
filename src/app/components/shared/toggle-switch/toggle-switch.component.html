@@ -1,0 +1,7 @@
+<div class="toggle-container" (click)="toggleMode()">
+  <div class="toggle-bg" [ngClass]="{'green': isActive, 'red': !isActive}">
+    <div class="toggle-slider" [ngClass]="{'active': isActive}"></div>
+  </div>
+
+  <span>See details</span>
+</div>
