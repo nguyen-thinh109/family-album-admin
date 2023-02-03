@@ -9,7 +9,11 @@ import { FunctionBoardComponent } from './components/function-board/function-boa
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponentComponent } from './components/shared/dialog-component/dialog-component.component';
 import { ToggleSwitchComponent } from './components/shared/toggle-switch/toggle-switch.component';
-import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MatDialogModule,
+} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,7 @@ import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
     PhoneUpdateComponent,
     FunctionBoardComponent,
     DialogComponentComponent,
-    ToggleSwitchComponent
+    ToggleSwitchComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +30,12 @@ import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

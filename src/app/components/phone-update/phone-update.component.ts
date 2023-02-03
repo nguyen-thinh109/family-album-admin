@@ -34,13 +34,13 @@ export class PhoneUpdateComponent implements OnInit {
     ],
   });
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) {}
+  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.getCurrentActivePhoneList();
   }
 
-  getCurrentActivePhoneList() {}
+  getCurrentActivePhoneList() { }
 
   sendNewPhoneNumber() {
     let isExsitedPhoneNumber: boolean = this.activePhoneList.some(
@@ -51,6 +51,8 @@ export class PhoneUpdateComponent implements OnInit {
     if (isExsitedPhoneNumber) {
       this.dialog.open(DialogComponentComponent, {
         hasBackdrop: true,
+        height: '300px',
+        width: '300px',
         data: { message: 'Phone number existed!' },
       });
     } else {
