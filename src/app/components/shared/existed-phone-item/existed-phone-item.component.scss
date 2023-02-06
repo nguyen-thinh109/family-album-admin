@@ -1,0 +1,20 @@
+.phone-container {
+    display: flex;
+    padding: 10px;
+    gap: 8px;
+    align-items: center;
+    background: #fff;
+
+    &.gray {
+        background: #f7f7f7;
+    }
+
+    .phone-info {
+        flex: 1 1 0;
+        text-align: center;
+
+        &username {
+            font-style: italic;
+        }
+    }
+}

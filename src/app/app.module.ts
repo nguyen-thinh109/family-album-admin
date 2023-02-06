@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,8 +13,10 @@ import {
   MAT_DIALOG_DATA,
   MAT_DIALOG_DEFAULT_OPTIONS,
   MatDialogModule,
+  MatDialogRef,
 } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { ExistedPhoneItemComponent } from './components/shared/existed-phone-item/existed-phone-item.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     FunctionBoardComponent,
     DialogComponentComponent,
     ToggleSwitchComponent,
+    ExistedPhoneItemComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
+    { provide: MatDialogRef, useValue: {} },
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponentComponent]

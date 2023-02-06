@@ -11,16 +11,7 @@ import { ApiService } from 'src/app/config/api.service';
   styleUrls: ['./phone-update.component.scss'],
 })
 export class PhoneUpdateComponent implements OnInit {
-  activePhoneList: UserPhoneNumberData[] = [
-    {
-      username: 'Thinh',
-      phoneNumber: '0984018891',
-    },
-    {
-      username: 'Thinh',
-      phoneNumber: '0886718891',
-    },
-  ];
+  activePhoneList: UserPhoneNumberData[] = [];
 
   isShownDetail: boolean = false;
 
@@ -39,14 +30,20 @@ export class PhoneUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
     private apiService: ApiService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getCurrentActivePhoneList();
   }
 
   getCurrentActivePhoneList() {
-    return this.apiService.getPhoneList()
+    this.apiService.getPhoneList().subscribe((res: UserPhoneNumberData[]) => {
+      this.activePhoneList = res;
+    })
+  }
+
+  toggleDetail(e: boolean){
+    this.isShownDetail = e
   }
 
   sendNewPhoneNumber() {
@@ -56,13 +53,23 @@ export class PhoneUpdateComponent implements OnInit {
     );
 
     if (isExsitedPhoneNumber) {
-      this.dialog.open(DialogComponentComponent, {
+      return this.dialog.open(DialogComponentComponent, {
         hasBackdrop: true,
         width: '300px',
         data: { message: 'Phone number existed!' },
       });
-    } else {
-      //api
     }
+
+    if (this.phoneForm.controls.phoneNumber.value && this.phoneForm.controls.username.value) {
+      var request: UserPhoneNumberData = {
+        username: this.phoneForm.controls.username.value,
+        phoneNumber: this.phoneForm.controls.phoneNumber.value
+      }
+      return this.apiService.createNewUser(request).subscribe(() => {
+        this.getCurrentActivePhoneList();
+      })
+    }
+
+    return;
   }
 }

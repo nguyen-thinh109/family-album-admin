@@ -1,0 +1,1 @@
+export const baseURL: string = 'https://odd-undershirt-foal.cyclic.app/';

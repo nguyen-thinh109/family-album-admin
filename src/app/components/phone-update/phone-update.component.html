@@ -11,4 +11,14 @@
   </form>
 </div>
 
-<app-toggle-switch></app-toggle-switch>
+<app-toggle-switch (isOn)="toggleDetail($event)"></app-toggle-switch>
+
+<div class="detail-area" *ngIf="isShownDetail">
+
+  <ng-container *ngFor="let item of activePhoneList, even as even">
+    <div class="phone-container">
+      <app-existed-phone-item [isEvenIndex]="even" [phoneData]="item"></app-existed-phone-item>
+    </div>
+  </ng-container>
+
+</div>
