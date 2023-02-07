@@ -42,7 +42,7 @@ export class PhoneUpdateComponent implements OnInit {
     })
   }
 
-  toggleDetail(e: boolean){
+  toggleDetail(e: boolean) {
     this.isShownDetail = e
   }
 
@@ -71,5 +71,9 @@ export class PhoneUpdateComponent implements OnInit {
     }
 
     return;
+  }
+
+  updateExistingDataList(e: boolean) {
+    if (e) this.getCurrentActivePhoneList();
   }
 }

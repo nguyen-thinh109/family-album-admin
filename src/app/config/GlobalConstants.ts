@@ -1,1 +1,4 @@
-export const baseURL: string = 'https://odd-undershirt-foal.cyclic.app/';
+export const baseURL: string = 'https://friendly-blue-bikini.cyclic.app/';
+
+//https://family-album-svr.vercel.app/
+// https://friendly-blue-bikini.cyclic.app/

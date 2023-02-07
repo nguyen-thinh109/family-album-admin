@@ -1,0 +1,34 @@
+.delete-item-container {
+    padding: 24px;
+    background: #748D69;
+
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        color: #fff;
+    }
+
+    .button-area {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+
+        button {
+            padding: 8px 16px;
+            color: #fff;
+
+
+            &.red {
+                background: #fd3628;
+            }
+
+            &.green {
+                background: #75c930;
+            }
+        }
+    }
+
+}

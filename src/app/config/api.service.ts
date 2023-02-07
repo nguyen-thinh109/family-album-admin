@@ -24,23 +24,23 @@ export class ApiService {
     return this.http.post(this.baseURL + 'phone', data, { responseType: "json"});
   }
 
-  updateNewPhoto(target: string, data: PhotoData) : Observable<any>{
+  createNewPhoto(target: string, data: PhotoData) : Observable<any>{
     return this.http.post(this.baseURL + target, data, { responseType: "json"});
   }
 
   deleteUser(data: UserPhoneNumberData) : Observable<any>{
-    return this.http.delete(this.baseURL + 'phone', { responseType: "json"});
+    return this.http.delete(this.baseURL + 'phone' + '/' + data.id, { responseType: "json"});
   }
 
   deletePhoto(target: string, data: PhotoData) : Observable<any>{
-    return this.http.post(this.baseURL + target, data, { responseType: "json"});
+    return this.http.delete(this.baseURL + target + '/' + data.id, { responseType: "json"});
   }
 
   editUser(data: UserPhoneNumberData) : Observable<any>{
-    return this.http.post(this.baseURL + 'phone', data, { responseType: "json"});
+    return this.http.put(this.baseURL + 'phone/' + data.id, data, { responseType: "json"});
   }
 
   editPhoto(target: string, data: PhotoData) : Observable<any>{
-    return this.http.post(this.baseURL + target, data, { responseType: "json"});
+    return this.http.put(this.baseURL + target + '/' + data.id, data, { responseType: "json"});
   }
 }

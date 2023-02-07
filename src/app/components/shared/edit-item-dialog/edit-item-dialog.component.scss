@@ -1,0 +1,66 @@
+.edit-container {
+    padding: 16px;
+    background: #748D69;
+
+    h2 {
+        text-align: center;
+    }
+
+    form {
+        color: #fff;
+
+        label {
+            font-style: italic;
+            display: block;
+            padding: 8px 0;
+        }
+
+        input[type=text] {
+            padding: 10px 8px;
+            width: calc(100% - 16px);
+            border-radius: 4px;
+            border: none;
+            font-style: italic;
+            margin-bottom: 8px;
+            font-weight: bold;
+
+            &#phoneNumber {
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+
+            &:hover,
+            &:focus {
+                outline: dashed 0.5px #FFF4E6;
+            }
+
+            &:last-child {
+                margin-bottom: 16px;
+            }
+        }
+
+        .button-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-top: 16px;
+
+            button {
+                padding: 8px 16px;
+                color: #fff;
+
+                &.red {
+                    background: #fd3628;
+                }
+
+                &.green {
+                    background: #75c930;
+                }
+
+                &.grey {
+                    background: #bfcfb2;
+                }
+            }
+        }
+    }
+}

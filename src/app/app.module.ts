@@ -17,6 +17,10 @@ import {
 } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { ExistedPhoneItemComponent } from './components/shared/existed-phone-item/existed-phone-item.component';
+import { CommonModule } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { DialogModule } from '@angular/cdk/dialog';
+import { EditItemDialogComponent } from './components/shared/edit-item-dialog/edit-item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { ExistedPhoneItemComponent } from './components/shared/existed-phone-ite
     FunctionBoardComponent,
     DialogComponentComponent,
     ToggleSwitchComponent,
-    ExistedPhoneItemComponent
+    ExistedPhoneItemComponent,
+    EditItemDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,16 @@ import { ExistedPhoneItemComponent } from './components/shared/existed-phone-ite
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
+    CommonModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    ScrollingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    DialogModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },

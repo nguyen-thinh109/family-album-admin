@@ -17,7 +17,7 @@
 
   <ng-container *ngFor="let item of activePhoneList, even as even">
     <div class="phone-container">
-      <app-existed-phone-item [isEvenIndex]="even" [phoneData]="item"></app-existed-phone-item>
+      <app-existed-phone-item [isEvenIndex]="even" [phoneData]="item" (updateCompleteNotifier)="updateExistingDataList($event)"></app-existed-phone-item>
     </div>
   </ng-container>
 

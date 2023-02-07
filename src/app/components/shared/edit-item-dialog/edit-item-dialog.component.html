@@ -1,0 +1,15 @@
+<div class="edit-container">
+  <h2>Edit</h2>
+  <form [formGroup]="phoneForm" (submit)="submitData()">
+    <label for="username">Username (required):</label>
+    <input formControlName="username" type="text" name="username" id="username" placeholder="Enter username">
+
+    <label for="phoneNumber">Phone number (required):</label>
+    <input formControlName="phoneNumber" type="text" name="phoneNumber" id="phoneNumber"
+      placeholder="Enter phone number">
+    <div class="button-area">
+      <button type="button" class="red" mat-dialog-close>Cancel</button>
+      <button type="submit" [ngClass]="phoneForm.valid ? 'green' : 'grey'" [disabled]="!phoneForm.valid">Update</button>
+    </div>
+  </form>
+</div>

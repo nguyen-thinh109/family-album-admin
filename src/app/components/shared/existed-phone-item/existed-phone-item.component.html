@@ -1,4 +1,6 @@
 <div class="phone-container" [class.gray]="isEvenIndex">
   <div class="phone-info username">{{phoneData.username || 'No name'}}:</div>
   <div class="phone-info">{{phoneData.phoneNumber}}</div>
+  <img src="assets/edit.png" alt="edit" width="20" (click)="editItem()">
+  <img src="assets/delete.png" alt="delete" width="24" (click)="deleteItem()">
 </div>
