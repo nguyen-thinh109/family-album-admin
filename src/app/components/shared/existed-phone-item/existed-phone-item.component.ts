@@ -29,7 +29,7 @@ export class ExistedPhoneItemComponent implements OnInit {
   ngOnInit() { }
 
   editItem() {
-    const dialog = this.dialog.open(EditItemDialogComponent, { data: this.phoneData })
+    const dialog = this.dialog.open(EditItemDialogComponent, { data: this.phoneData, width: '320px' })
 
     dialog.afterClosed().subscribe((res) => {
       if (res && res.phoneNumber != this.phoneData.phoneNumber) {
@@ -44,7 +44,7 @@ export class ExistedPhoneItemComponent implements OnInit {
   }
 
   deleteItem() {
-    const dialog = this.dialog.open(DeleteItemComponent, { data: this.phoneData })
+    const dialog = this.dialog.open(DeleteItemComponent, { data: this.phoneData, width: '320px' })
 
     dialog.afterClosed().subscribe((res) => {
       if (res) {

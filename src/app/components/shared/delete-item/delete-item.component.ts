@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UserPhoneNumberData, PhotoData } from 'src/interfaces/interfaces';
+import { UserPhoneNumberData } from 'src/interfaces/interfaces';
 
 @Component({
   selector: 'app-delete-item',
@@ -15,7 +15,7 @@ export class DeleteItemComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data: UserPhoneNumberData,
     private dialogRef: MatDialogRef<DeleteItemComponent>
   ) {
-    this.messageTarget = this.data.phoneNumber;
+    this.messageTarget = this.data?.phoneNumber || '';
   }
 
   ngOnInit() {}

@@ -1,6 +1,6 @@
 <div class="edit-container">
   <h2>Edit</h2>
-  <form [formGroup]="phoneForm" (submit)="submitData()">
+  <form [formGroup]="phoneForm" (submit)="submitUserData()" *ngIf="!isUpdatingPhoto">
     <label for="username">Username (required):</label>
     <input formControlName="username" type="text" name="username" id="username" placeholder="Enter username">
 
@@ -10,6 +10,19 @@
     <div class="button-area">
       <button type="button" class="red" mat-dialog-close>Cancel</button>
       <button type="submit" [ngClass]="phoneForm.valid ? 'green' : 'grey'" [disabled]="!phoneForm.valid">Update</button>
+    </div>
+  </form>
+
+  <form [formGroup]="photoForm" (submit)="submitPhotoData()" *ngIf="isUpdatingPhoto">
+    <label for="title">Title (optional):</label>
+    <input formControlName="title" type="text" name="title" id="title" placeholder="Enter title">
+
+    <label for="link">Phone number (required):</label>
+    <input formControlName="link" type="text" name="link" id="link"
+      placeholder="Enter link">
+    <div class="button-area">
+      <button type="button" class="red" mat-dialog-close>Cancel</button>
+      <button type="submit" [ngClass]="photoForm.valid ? 'green' : 'grey'" [disabled]="!photoForm.valid">Update</button>
     </div>
   </form>
 </div>

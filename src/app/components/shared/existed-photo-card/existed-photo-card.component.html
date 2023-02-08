@@ -1,0 +1,12 @@
+<div class="photo-card" [class.last-item]="isLastItem">
+  <div class="photo-card-img">
+    <div class="edit-btn">
+      <img src="assets/edit.png" alt="edit" width="20" (click)="editPhoto()">
+      <img src="assets/delete.png" alt="delete" width="24" (click)="deletePhoto()">
+    </div>
+    <img [src]="photoItemData.link" [alt]="photoItemData.id" width="330">
+  </div>
+  <div class="photo-card-title">
+    <span>{{photoItemData.title || '\<No title\>'}}</span>
+  </div>
+</div>

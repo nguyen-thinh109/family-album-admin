@@ -1,0 +1,36 @@
+.photo-card {
+    border: solid 0.5px #bdbdbd;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+
+    .photo-card-img {
+        overflow: hidden;
+        position: relative;
+
+        .edit-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            padding: 4px 8px;
+            border-bottom-left-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+    }
+
+    .photo-card-title {
+        padding: 8px 12px;
+        text-align: center;
+    }
+
+    &.last-item {
+        margin-bottom: 24px
+    }
+
+}

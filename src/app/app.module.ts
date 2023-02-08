@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DialogModule } from '@angular/cdk/dialog';
 import { EditItemDialogComponent } from './components/shared/edit-item-dialog/edit-item-dialog.component';
+import { ExistedPhotoCardComponent } from './components/shared/existed-photo-card/existed-photo-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditItemDialogComponent } from './components/shared/edit-item-dialog/ed
     DialogComponentComponent,
     ToggleSwitchComponent,
     ExistedPhoneItemComponent,
-    EditItemDialogComponent
+    EditItemDialogComponent,
+    ExistedPhotoCardComponent
   ],
   imports: [
     BrowserModule,

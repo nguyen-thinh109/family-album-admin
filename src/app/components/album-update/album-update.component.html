@@ -17,7 +17,20 @@
       <button type="submit" class="add" *ngIf="albumForm.valid">Add new photo</button>
     </div>
   </form>
-
 </div>
 
-<app-toggle-switch></app-toggle-switch>
+<app-toggle-switch (isOn)="showDetails($event)"></app-toggle-switch>
+
+<ng-container *ngIf="isPhotosShown">
+
+  <ng-container *ngFor="let item of $albumData | async as albumData, last as last">
+    <app-existed-photo-card (updateComplete)="updateComplete($event)" [currentAlbum]="tabList[activeTabIndex]" [isLastItem]="last" [photoItemData]="item"></app-existed-photo-card>
+  </ng-container>
+
+  <ng-container *ngIf="!($albumData | async)">
+    <p class="no-photo">No photo available!</p>
+  </ng-container>
+
+</ng-container>
+
+
