@@ -6,14 +6,18 @@
     border-radius: 8px;
     margin-bottom: 16px;
 
-
     button {
         flex: 1 1 0;
         background: #748D69;
+        padding: 8px;
+        color: #fff;
     }
 
     .active {
         background: #FFF4E6;
+        color: #000;
+        font-weight: bold;
+        font-style: italic;
     }
 }
 
