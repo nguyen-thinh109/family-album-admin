@@ -18,6 +18,7 @@ export class ExistedPhoneItemComponent implements OnInit {
   };
 
   @Input() isEvenIndex: boolean = false;
+  @Input() isLastIndex: boolean = false;
   @Output() updateCompleteNotifier: EventEmitter<boolean> =
     new EventEmitter<boolean>();
 

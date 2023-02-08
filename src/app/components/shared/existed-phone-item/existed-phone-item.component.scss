@@ -9,6 +9,10 @@
         background: #f7f7f7;
     }
 
+    &.border-bottom{
+        border-bottom: solid 0.5px #b1b1b1;
+    }
+
     .phone-info {
         flex: 1 1 0;
         text-align: center;
