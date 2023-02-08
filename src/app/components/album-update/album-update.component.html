@@ -27,7 +27,7 @@
     <app-existed-photo-card (updateComplete)="updateComplete($event)" [currentAlbum]="tabList[activeTabIndex]" [isLastItem]="last" [photoItemData]="item"></app-existed-photo-card>
   </ng-container>
 
-  <ng-container *ngIf="!($albumData | async)">
+  <ng-container *ngIf="!($albumData | async)?.length">
     <p class="no-photo">No photo available!</p>
   </ng-container>
 
