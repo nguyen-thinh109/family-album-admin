@@ -7,14 +7,15 @@
 <!-- Terminal -->
 <div class="terminal">
   <form [formGroup]="albumForm" (submit)="sendNewImage()">
-    <label for="title">Photo title (optional):</label>
-    <input formControlName="title" type="text" name="title" id="title" placeholder="Enter image description">
+    <div class="form">
+      <label for="title">Photo title (optional):</label>
+      <input formControlName="title" type="text" name="title" id="title" placeholder="Enter image description">
 
-    <label for="link">Link (required):</label>
-    <input formControlName="link" type="text" name="link" id="link" placeholder="Image link">
-    
-    <button type="submit" class="add" *ngIf="albumForm.valid">Add new photo</button>
+      <label for="link">Link (required):</label>
+      <input formControlName="link" type="text" name="link" id="link" placeholder="Image link">
 
+      <button type="submit" class="add" *ngIf="albumForm.valid">Add new photo</button>
+    </div>
   </form>
 
 </div>

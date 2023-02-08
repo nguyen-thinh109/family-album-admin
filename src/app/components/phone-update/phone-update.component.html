@@ -1,13 +1,16 @@
 <!-- Terminal -->
 <div class="terminal">
   <form [formGroup]="phoneForm" (submit)="sendNewPhoneNumber()">
-    <label for="username">Username (required):</label>
-    <input formControlName="username" type="text" name="username" id="username" placeholder="Enter username">
+    <div class="form">
+      <label for="username">Username (required):</label>
+      <input formControlName="username" type="text" name="username" id="username" placeholder="Enter username">
 
-    <label for="phoneNumber">Phone number (required):</label>
-    <input formControlName="phoneNumber" type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter phone number">
-    
-    <button type="submit" class="add" *ngIf="phoneForm.valid">Add phone number</button>
+      <label for="phoneNumber">Phone number (required):</label>
+      <input formControlName="phoneNumber" type="text" name="phoneNumber" id="phoneNumber"
+        placeholder="Enter phone number">
+
+      <button type="submit" class="add" *ngIf="phoneForm.valid">Add phone number</button>
+    </div>
   </form>
 </div>
 
@@ -17,7 +20,8 @@
 
   <ng-container *ngFor="let item of activePhoneList, even as even">
     <div class="phone-container">
-      <app-existed-phone-item [isEvenIndex]="even" [phoneData]="item" (updateCompleteNotifier)="updateExistingDataList($event)"></app-existed-phone-item>
+      <app-existed-phone-item [isEvenIndex]="even" [phoneData]="item"
+        (updateCompleteNotifier)="updateExistingDataList($event)"></app-existed-phone-item>
     </div>
   </ng-container>
 
