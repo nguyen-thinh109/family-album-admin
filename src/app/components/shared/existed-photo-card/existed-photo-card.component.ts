@@ -31,7 +31,7 @@ export class ExistedPhotoCardComponent implements OnInit {
     });
 
     dialog.afterClosed().subscribe((res) => {
-      if (res && res.link != this.photoItemData.link) {
+      if (res) {
         this.apiService.editPhoto(this.currentAlbum, this.photoItemData)
         .subscribe((respond) => {
           console.log(respond);
