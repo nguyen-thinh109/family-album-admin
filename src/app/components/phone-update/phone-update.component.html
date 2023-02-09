@@ -18,7 +18,7 @@
 
 <div class="detail-area" *ngIf="isShownDetail">
 
-  <ng-container *ngFor="let item of activePhoneList, even as even, last as last">
+  <ng-container *ngFor="let item of activePhoneList?.slice()?.reverse(), even as even, last as last">
     <div class="phone-container">
       <app-existed-phone-item [isEvenIndex]="even" [phoneData]="item" [isLastIndex]="last"
         (updateCompleteNotifier)="updateExistingDataList($event)"></app-existed-phone-item>

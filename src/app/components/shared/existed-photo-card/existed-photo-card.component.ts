@@ -4,7 +4,7 @@ import { ApiService } from 'src/app/config/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteItemComponent } from '../delete-item/delete-item.component';
 import { EditItemDialogComponent } from '../edit-item-dialog/edit-item-dialog.component';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-existed-photo-card',
   templateUrl: './existed-photo-card.component.html',
@@ -20,35 +20,40 @@ export class ExistedPhotoCardComponent implements OnInit {
   @Input() currentAlbum: string = '';
   @Output() updateComplete: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {}
+  constructor(
+    private _apiService: ApiService,
+    private _dialog: MatDialog,
+    private _matSnackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {}
 
   editPhoto() {
-    const dialog = this.dialog.open(EditItemDialogComponent, {
+    const dialog = this._dialog.open(EditItemDialogComponent, {
       data: this.photoItemData,
       width: '320px',
     });
 
     dialog.afterClosed().subscribe((res) => {
       if (res) {
-        this.apiService.editPhoto(this.currentAlbum, this.photoItemData)
-        .subscribe((respond) => {
-          console.log(respond);
-          this.updateComplete.emit('completed');
-        });
+        this._apiService
+          .editPhoto(this.currentAlbum, res)
+          .subscribe((respond) => {
+            console.log(respond);
+            this.updateComplete.emit('completed');
+          });
       }
     });
   }
 
   deletePhoto() {
-    const dialog = this.dialog.open(DeleteItemComponent, {
+    const dialog = this._dialog.open(DeleteItemComponent, {
       width: '320px',
     });
 
     dialog.afterClosed().subscribe((r) => {
       if (r)
-        this.apiService
+        this._apiService
           .deletePhoto(this.currentAlbum, this.photoItemData)
           .subscribe((res) => {
             console.log(res);

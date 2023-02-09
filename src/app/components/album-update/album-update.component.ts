@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, of } from 'rxjs';
 import { ApiService } from 'src/app/config/api.service';
 import { PhotoData } from 'src/interfaces/interfaces';
@@ -10,7 +11,6 @@ import { PhotoData } from 'src/interfaces/interfaces';
   styleUrls: ['./album-update.component.scss'],
 })
 export class AlbumUpdateComponent implements OnInit {
-
   tabList: string[] = ['collective', 'banoi', 'thu', 'hang'];
   currentTarget: string = '';
   activeTabIndex: number = 0;
@@ -24,11 +24,13 @@ export class AlbumUpdateComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ApiService
-  ) { }
+    private _apiService: ApiService,
+    private _matSnackBar: MatSnackBar
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getFullAlbum();
+    this._matSnackBar.open('Success');
   }
 
   updateCurrentTabTarget(number: number): void {
@@ -39,9 +41,16 @@ export class AlbumUpdateComponent implements OnInit {
   }
 
   sendNewImage(): void {
-    console.log(this.albumForm.value);
-
-    this.albumForm.reset();
+    this._apiService
+      .createNewPhoto(
+        this.tabList[this.activeTabIndex],
+        this.albumForm.getRawValue()
+      )
+      .subscribe((r) => {
+        this.getFullAlbum();
+        this._matSnackBar.open('Success');
+        this.albumForm.reset();
+      });
   }
 
   showDetails(e: boolean): void {
@@ -49,12 +58,14 @@ export class AlbumUpdateComponent implements OnInit {
   }
 
   getFullAlbum(): void {
-    this.apiService.getPhotoList(this.tabList[this.activeTabIndex]).subscribe((res: PhotoData[]) => {
-      this.$albumData = of(res);
-    })
+    this._apiService
+      .getPhotoList(this.tabList[this.activeTabIndex])
+      .subscribe((res: PhotoData[]) => {
+        this.$albumData = of(res);
+      });
   }
 
-  updateComplete(e: string){
+  updateComplete(e: string): void {
     this.getFullAlbum();
   }
 }

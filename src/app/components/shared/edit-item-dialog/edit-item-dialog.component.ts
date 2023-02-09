@@ -63,5 +63,11 @@ export class EditItemDialogComponent implements OnInit {
       link: this.photoForm.controls.link.value?.trim(),
       id: this.data.id,
     });
+
+    // console.log({
+    //   title: this.photoForm.controls.title.value,
+    //   link: this.photoForm.controls.link.value?.trim(),
+    //   id: this.data.id,
+    // });
   }
 }

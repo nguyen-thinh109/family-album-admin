@@ -23,7 +23,7 @@
 
 <ng-container *ngIf="isPhotosShown">
 
-  <ng-container *ngFor="let item of $albumData | async as albumData, last as last">
+  <ng-container *ngFor="let item of ($albumData| async)?.slice()?.reverse(), last as last">
     <app-existed-photo-card (updateComplete)="updateComplete($event)" [currentAlbum]="tabList[activeTabIndex]" [isLastItem]="last" [photoItemData]="item"></app-existed-photo-card>
   </ng-container>
 

@@ -22,6 +22,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DialogModule } from '@angular/cdk/dialog';
 import { EditItemDialogComponent } from './components/shared/edit-item-dialog/edit-item-dialog.component';
 import { ExistedPhotoCardComponent } from './components/shared/existed-photo-card/existed-photo-card.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -53,14 +54,16 @@ import { ExistedPhotoCardComponent } from './components/shared/existed-photo-car
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    DialogModule
+    DialogModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
     { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponentComponent]
 })
-export class AppModule {}
+export class AppModule { }
